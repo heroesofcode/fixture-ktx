@@ -45,7 +45,7 @@ object Fixture {
             classifier == Int::class -> IntFaker.fake(propertyName)
             classifier == Boolean::class -> Random.nextBoolean()
             classifier == Double::class -> DoubleFaker.fake(propertyName)
-            classifier == Float::class -> Random.nextFloat()
+            classifier == Float::class -> DoubleFaker.fake(propertyName).toFloat()
             classifier.javaObjectType.isEnum -> {
                 val enumClass = classifier
                 val enumValues = enumClass.java.enumConstants
