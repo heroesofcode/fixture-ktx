@@ -5,7 +5,7 @@ import com.heroesofcode.RANGE_INIT
 import io.github.serpro69.kfaker.Faker
 import kotlin.random.Random
 
-object StringFaker {
+object StringFaker: FixtureFaker<String> {
     private val faker = Faker()
 
     private val fakeFunctions = mapOf(
@@ -30,7 +30,7 @@ object StringFaker {
         "university" to { faker.university.name() }
     )
 
-    fun fake(propertyName: String): String {
+    override fun fake(propertyName: String): String {
         val lowercasePropertyName = propertyName.lowercase()
         val function = fakeFunctions.entries.find { (key, _) ->
             lowercasePropertyName.contains(key)

@@ -1,5 +1,6 @@
 package com.heroesofcode
 
+import com.heroesofcode.faker.IntFaker
 import com.heroesofcode.faker.StringFaker
 import kotlin.random.Random
 import kotlin.reflect.KClass
@@ -42,7 +43,7 @@ object Fixture {
 
         return when {
             classifier == String::class -> StringFaker.fake(parameterName)
-            classifier == Int::class -> Random.nextInt(RANGE_INIT, RANGE_END)
+            classifier == Int::class -> IntFaker.fake(parameterName)
             classifier == Boolean::class -> Random.nextBoolean()
             classifier == Double::class -> Random.nextDouble(RANGE_INIT.toDouble(), RANGE_END.toDouble())
             classifier == Float::class -> Random.nextFloat()
