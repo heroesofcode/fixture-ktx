@@ -5,7 +5,7 @@ import com.heroesofcode.RANGE_INIT
 import io.github.serpro69.kfaker.Faker
 import kotlin.random.Random
 
-object StringFaker: FixtureFaker<String> {
+object StringFaker : FixtureFaker<String> {
     private val faker = Faker()
 
     private val fakeFunctions = mapOf(

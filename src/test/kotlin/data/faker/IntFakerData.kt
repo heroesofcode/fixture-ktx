@@ -1,6 +1,6 @@
 package data.faker
 
-data class IntFakerData (
+data class IntFakerData(
     val age: Int,
     val year: Int,
     val month: Int,
