@@ -13,9 +13,10 @@ repositories {
 }
 
 dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.2")
-
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.31")
     testImplementation(kotlin("test"))
+
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.2")
 }
 
 tasks.test {
