@@ -3,14 +3,20 @@ package com.heroesofcode
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
 import kotlin.reflect.full.primaryConstructor
-import kotlin.reflect.full.createType
 import kotlin.random.Random
+import kotlin.reflect.full.createType
 
 object Fixture {
     private const val MAX_DEPTH = 3
 
     inline fun <reified T : Any> fixtureOf(): T {
         return createInstance(T::class, 0)
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    inline fun <reified T : Any> fixtureListOf(size: Int = 3): List<T> {
+        val type = T::class.createType()
+        return generateList(type, size, 0) as List<T>
     }
 
     fun <T : Any> createInstance(klass: KClass<T>, depth: Int): T {
@@ -42,14 +48,13 @@ object Fixture {
             classifier == List::class -> {
                 val argumentType = type.arguments.first().type
                     ?: throw IllegalArgumentException("Unsupported list type: $type")
-                generateList(argumentType, depth + 1)
+                generateList(argumentType, Random.nextInt(1, 5), depth + 1)
             }
             else -> createInstance(classifier, depth)
         }
     }
 
-    private fun generateList(elementType: KType, depth: Int): List<Any> {
-        val listSize = Random.nextInt(1, 5)
-        return List(listSize) { generateValue(elementType, depth) }
+    fun generateList(elementType: KType, size: Int, depth: Int): List<Any> {
+        return List(size) { generateValue(elementType, depth) }
     }
 }

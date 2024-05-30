@@ -20,4 +20,12 @@ class FixtureTest {
         assertNotNull(group)
         assertTrue(group.users.isNotEmpty())
     }
+
+    @Test
+    fun `test fixtureOf generates list of Users instance`() {
+        val users: List<User> = Fixture.fixtureListOf()
+
+        assertNotNull(users)
+        assertTrue(users.size == 3)
+    }
 }

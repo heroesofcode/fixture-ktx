@@ -6,7 +6,7 @@ data class User(
     val isMarriage: Boolean,
     val height: Double,
     val weight: Float,
-    val childNumber: Long
+    val childNumber: Long?
 )
 
 data class Group(
