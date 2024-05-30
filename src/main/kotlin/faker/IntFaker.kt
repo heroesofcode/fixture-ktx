@@ -1,21 +1,11 @@
 package com.heroesofcode.faker
 
-import com.heroesofcode.RANGE_END
-import com.heroesofcode.RANGE_INIT
+import com.heroesofcode.faker.constants.*
+import com.heroesofcode.faker.constants.RANGE_END
+import com.heroesofcode.faker.constants.RANGE_INIT
+import com.heroesofcode.faker.constants.YEAR_END
+import com.heroesofcode.faker.constants.YEAR_START
 import kotlin.random.Random
-
-private const val YEAR_START = 1950
-private const val YEAR_END = 2024
-private const val MONTH_START = 1
-private const val MONTH_END = 12
-private const val DAY_START = 1
-private const val DAY_END = 31
-private const val CHAPTER_START = 1
-private const val CHAPTER_END = 12
-private const val EPISODE_START = 1
-private const val EPISODE_END = 10
-private const val ROUND_START = 1
-private const val ROUND_END = 12
 
 object IntFaker : FixtureFaker<Int> {
 
