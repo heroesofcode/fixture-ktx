@@ -1,5 +1,6 @@
 package com.heroesofcode
 
+import com.heroesofcode.faker.StringFaker
 import kotlin.random.Random
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
@@ -29,23 +30,28 @@ object Fixture {
             ?: throw IllegalArgumentException("Class must have a primary constructor")
 
         val parameters = constructor.parameters.associateWith { parameter ->
-            generateValue(parameter.type)
+            generateValue(parameter.type, parameter.name ?: "")
         }
 
         return constructor.callBy(parameters)
     }
 
-    private fun generateValue(type: KType): Any {
+    private fun generateValue(type: KType, parameterName: String): Any {
         val classifier = type.classifier as? KClass<*>
             ?: throw IllegalArgumentException("Unsupported type: $type")
 
         return when {
-            classifier == String::class -> "String${Random.nextInt(RANGE_INIT, RANGE_END)}"
+            classifier == String::class -> StringFaker.fake(parameterName)
             classifier == Int::class -> Random.nextInt(RANGE_INIT, RANGE_END)
             classifier == Boolean::class -> Random.nextBoolean()
             classifier == Double::class -> Random.nextDouble(RANGE_INIT.toDouble(), RANGE_END.toDouble())
             classifier == Float::class -> Random.nextFloat()
-            classifier.javaObjectType.isEnum -> classifier.java.enumConstants.random()
+            classifier.javaObjectType.isEnum -> {
+                val enumClass = classifier
+                val enumValues = enumClass.java.enumConstants
+                    ?: throw IllegalArgumentException("Class is not an enum: $classifier")
+                enumValues.random()
+            }
             classifier == Long::class -> Random.nextLong(RANGE_INIT.toLong(), RANGE_END.toLong())
             classifier == List::class -> {
                 val argumentType = type.arguments.first().type
@@ -57,6 +63,6 @@ object Fixture {
     }
 
     fun generateList(elementType: KType, size: Int): List<Any> {
-        return List(size) { generateValue(elementType) }
+        return List(size) { generateValue(elementType, "") }
     }
 }
