@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
+    kotlin("jvm") version "2.0.0"
 
     id("io.gitlab.arturbosch.detekt") version "1.23.2"
     id("org.jetbrains.kotlinx.kover") version "0.7.6"
@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.9.23")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.0.0")
     implementation("io.github.serpro69:kotlin-faker:1.6.0")
     testImplementation(kotlin("test"))
 
