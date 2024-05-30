@@ -1,5 +1,6 @@
 import com.heroesofcode.Fixture.fixtureListOf
 import com.heroesofcode.Fixture.fixtureOf
+import data.EnumDataTest
 import data.Group
 import data.Person
 import data.User
@@ -41,5 +42,11 @@ class FixtureTest {
     fun `test fixtureListOf generates list of Person instances`() {
         val people: List<Person> = fixtureListOf()
         assertNotNull(people)
+    }
+
+    @Test
+    fun `test fixtureOf with enum data on data class`() {
+        val enumData = fixtureOf<EnumDataTest>()
+        assertNotNull(enumData)
     }
 }
