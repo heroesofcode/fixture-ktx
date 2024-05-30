@@ -1,18 +1,17 @@
 package com.heroesofcode
 
+import com.heroesofcode.faker.DoubleFaker
 import com.heroesofcode.faker.IntFaker
 import com.heroesofcode.faker.StringFaker
+import com.heroesofcode.faker.constants.RANGE_END
+import com.heroesofcode.faker.constants.RANGE_INIT
+import com.heroesofcode.faker.constants.RANGE_INIT_END
+import com.heroesofcode.faker.constants.RANGE_INT_INIT
 import kotlin.random.Random
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
 import kotlin.reflect.full.createType
 import kotlin.reflect.full.primaryConstructor
-
-const val RANGE_INIT = 0
-const val RANGE_END = 100
-
-const val RANGE_INT_INIT = 1
-const val RANGE_INIT_END = 5
 
 object Fixture {
 
@@ -37,16 +36,16 @@ object Fixture {
         return constructor.callBy(parameters)
     }
 
-    private fun generateValue(type: KType, parameterName: String): Any {
+    private fun generateValue(type: KType, propertyName: String): Any {
         val classifier = type.classifier as? KClass<*>
             ?: throw IllegalArgumentException("Unsupported type: $type")
 
         return when {
-            classifier == String::class -> StringFaker.fake(parameterName)
-            classifier == Int::class -> IntFaker.fake(parameterName)
+            classifier == String::class -> StringFaker.fake(propertyName)
+            classifier == Int::class -> IntFaker.fake(propertyName)
             classifier == Boolean::class -> Random.nextBoolean()
-            classifier == Double::class -> Random.nextDouble(RANGE_INIT.toDouble(), RANGE_END.toDouble())
-            classifier == Float::class -> Random.nextFloat()
+            classifier == Double::class -> DoubleFaker.fake(propertyName)
+            classifier == Float::class -> DoubleFaker.fake(propertyName).toFloat()
             classifier.javaObjectType.isEnum -> {
                 val enumClass = classifier
                 val enumValues = enumClass.java.enumConstants
