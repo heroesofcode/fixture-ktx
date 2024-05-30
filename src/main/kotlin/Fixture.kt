@@ -45,6 +45,7 @@ object Fixture {
             classifier == Boolean::class -> Random.nextBoolean()
             classifier == Double::class -> Random.nextDouble(RANGE_INIT.toDouble(), RANGE_END.toDouble())
             classifier == Float::class -> Random.nextFloat()
+            classifier.javaObjectType.isEnum -> classifier.java.enumConstants.random()
             classifier == Long::class -> Random.nextLong(RANGE_INIT.toLong(), RANGE_END.toLong())
             classifier == List::class -> {
                 val argumentType = type.arguments.first().type
