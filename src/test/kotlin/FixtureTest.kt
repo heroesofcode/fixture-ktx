@@ -1,5 +1,7 @@
-import com.heroesofcode.Fixture
+import com.heroesofcode.Fixture.fixtureListOf
+import com.heroesofcode.Fixture.fixtureOf
 import data.Group
+import data.Person
 import data.User
 import kotlin.test.Test
 import kotlin.test.assertNotNull
@@ -9,13 +11,13 @@ class FixtureTest {
 
     @Test
     fun `test fixtureOf generates User instance`() {
-        val user: User = Fixture.fixtureOf()
+        val user: User = fixtureOf()
         assertNotNull(user)
     }
 
     @Test
     fun `test fixtureOf generates Group with list of Users inside`() {
-        val group: Group = Fixture.fixtureOf()
+        val group: Group = fixtureOf()
 
         assertNotNull(group)
         assertTrue(group.users.isNotEmpty())
@@ -23,9 +25,21 @@ class FixtureTest {
 
     @Test
     fun `test fixtureOf generates list of Users instance`() {
-        val users: List<User> = Fixture.fixtureListOf()
+        val users: List<User> = fixtureListOf()
 
         assertNotNull(users)
         assertTrue(users.size == 3)
+    }
+
+    @Test
+    fun `test fixtureOf generates Person instance`() {
+        val person: Person = fixtureOf()
+        assertNotNull(person)
+    }
+
+    @Test
+    fun `test fixtureListOf generates list of Person instances`() {
+        val people: List<Person> = fixtureListOf()
+        assertNotNull(people)
     }
 }

@@ -7,7 +7,6 @@ import kotlin.random.Random
 import kotlin.reflect.full.createType
 
 object Fixture {
-    private const val MAX_DEPTH = 3
 
     inline fun <reified T : Any> fixtureOf(): T {
         return createInstance(T::class, 0)
@@ -20,10 +19,6 @@ object Fixture {
     }
 
     fun <T : Any> createInstance(klass: KClass<T>, depth: Int): T {
-        if (depth > MAX_DEPTH) {
-            throw IllegalArgumentException("Maximum depth exceeded")
-        }
-
         val constructor = klass.primaryConstructor
             ?: throw IllegalArgumentException("Class must have a primary constructor")
 
