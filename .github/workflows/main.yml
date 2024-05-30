@@ -34,17 +34,3 @@ jobs:
 
       - name: Run Unit Tests
         run: ./gradlew test
-
-  automerge:
-    name: Automerge
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.event.action == 'opened' || github.event.action == 'synchronize'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
-      - name: Automerge
-        uses: pascalgn/automerge-action@v0.12.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
