@@ -8,3 +8,7 @@ data class User(
     val weight: Float,
     val childNumber: Long
 )
+
+data class Group(
+    val users: List<User>
+)
