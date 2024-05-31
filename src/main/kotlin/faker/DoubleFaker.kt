@@ -102,8 +102,13 @@ import com.heroesofcode.faker.constants.YIELD_END
 import com.heroesofcode.faker.constants.YIELD_START
 import kotlin.random.Random
 
+/**
+ * DoubleFaker provides methods to generate fake double values for various scenarios.
+ * It implements the FixtureFaker interface for seamless integration with the Fixture Library.
+ */
 object DoubleFaker : FixtureFaker<Double> {
 
+    // Map containing fake functions for specific properties
     private val fakeFunctions = mapOf(
         "price" to { Random.nextDouble(PRICE_START, PRICE_END) },
         "rate" to { Random.nextDouble(RATE_START, RATE_END) },
@@ -156,6 +161,11 @@ object DoubleFaker : FixtureFaker<Double> {
         "spread" to { Random.nextDouble(SPREAD_START, SPREAD_END) }
     )
 
+    /**
+     * Generates a fake double value based on the provided property name.
+     * @param propertyName The name of the property for which to generate a fake value.
+     * @return A fake double value.
+     */
     override fun fake(propertyName: String): Double {
         val key = fakeFunctions.keys.find { propertyName.lowercase().contains(it) }
         return fakeFunctions[key]?.invoke() ?: Random.nextDouble(

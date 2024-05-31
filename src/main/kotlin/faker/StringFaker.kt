@@ -5,9 +5,16 @@ import com.heroesofcode.faker.constants.RANGE_INIT
 import io.github.serpro69.kfaker.Faker
 import kotlin.random.Random
 
+/**
+ * StringFaker is a utility for generating fake string values for various properties.
+ * It implements the FixtureFaker interface for seamless integration with the Fixture Library.
+ */
 object StringFaker : FixtureFaker<String> {
+
+    // Faker instance for generating fake data
     private val faker = Faker()
 
+    // Map containing fake functions for specific properties
     private val fakeFunctions = mapOf(
         "name" to { faker.name.name() },
         "address" to { faker.address.fullAddress() },
@@ -30,11 +37,19 @@ object StringFaker : FixtureFaker<String> {
         "university" to { faker.university.name() }
     )
 
+    /**
+     * Generates a fake string value based on the provided property name.
+     * @param propertyName The name of the property for which to generate a fake value.
+     * @return A fake string value.
+     */
     override fun fake(propertyName: String): String {
+        // Find the corresponding fake function based on the property name
         val lowercasePropertyName = propertyName.lowercase()
         val function = fakeFunctions.entries.find { (key, _) ->
             lowercasePropertyName.contains(key)
         }?.value
+
+        // Invoke the fake function if found, otherwise generate a default random string value
         return function?.invoke() ?: "String${Random.nextInt(RANGE_INIT, RANGE_END)}"
     }
 }
