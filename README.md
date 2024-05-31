@@ -19,9 +19,9 @@ dependencies {
 To generate an instance of a class with random data, use the <b>fixtureOf</b> method.
 
 ```kotlin
-  import com.heroesofcode.Fixture.fixtureOf
+import com.heroesofcode.Fixture.fixtureOf
 
-  val user = fixtureOf<User>()
+val user = fixtureOf<User>()
 ```
 
 ### Generating a List of Instances
@@ -29,9 +29,9 @@ To generate an instance of a class with random data, use the <b>fixtureOf</b> me
 To generate a list of class instances with random data, use the <b>fixtureListOf</b> method.
 
 ```kotlin
-  import com.heroesofcode.Fixture.fixtureListOf
+import com.heroesofcode.Fixture.fixtureListOf
 
-  val users: List<User> = fixtureListOf()
+val users: List<User> = fixtureListOf()
 ```
 
 ### Example Class 
@@ -51,13 +51,13 @@ data class User(
 ### Example Usage
 
 ```kotlin
-  fun main() {
+fun main() {
     val user: User = fixtureOf()
     println(user)
 
     val users: List<User> = fixtureListOf(size = 5)
     users.forEach { println(it) }
- }
+}
 ```
 
 ## Supported Property Types
