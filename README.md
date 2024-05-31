@@ -31,7 +31,7 @@ To generate a list of class instances with random data, use the <b>fixtureListOf
 ```kotlin
 import com.heroesofcode.Fixture.fixtureListOf
 
-val users: List<User> = fixtureListOf()
+val users = fixtureListOf<Users>()
 ```
 
 ### Example Class 
