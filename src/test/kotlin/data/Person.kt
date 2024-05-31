@@ -1,5 +1,7 @@
 package data
 
+import java.lang.Exception
+
 data class Address(
     val street: String,
     val city: String,
@@ -24,5 +26,7 @@ data class Person(
     val email: String,
     val address: Address,
     val jobs: List<Job>,
-    val isEmployed: Boolean
+    val isEmployed: Boolean,
+    val exception: Exception,
+    val throwable: Throwable
 )
