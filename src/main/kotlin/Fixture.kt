@@ -45,7 +45,9 @@ object Fixture {
         return try {
             klass.createInstance()
         } catch (e: Exception) {
-            throw IllegalArgumentException("Class must have a primary constructor or a no-arg constructor: ${klass.simpleName}")
+            throw IllegalArgumentException(
+                "Class must have a primary constructor or a no-arg constructor: ${klass.simpleName}"
+            )
         }
     }
 

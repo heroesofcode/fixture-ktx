@@ -27,5 +27,6 @@ data class Person(
     val address: Address,
     val jobs: List<Job>,
     val isEmployed: Boolean,
-    val exception: Exception
+    val exception: Exception,
+    val throwable: Throwable
 )
