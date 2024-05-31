@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.heroesofcode
 
 import com.heroesofcode.faker.DoubleFaker
@@ -43,9 +45,7 @@ object Fixture {
         return try {
             klass.createInstance()
         } catch (e: Exception) {
-            throw IllegalArgumentException(
-                "Class must have a primary constructor or a no-arg constructor: ${klass.simpleName}"
-            )
+            throw IllegalArgumentException("Class must have a primary constructor or a no-arg constructor: ${klass.simpleName}")
         }
     }
 
@@ -74,6 +74,9 @@ object Fixture {
                     createInstance(subclass)
                 }
             }
+            Throwable::class.java.isAssignableFrom(classifier.java) -> {
+                createExceptionInstance(classifier as KClass<out Throwable>)
+            }
             classifier == Long::class -> Random.nextLong(RANGE_INIT.toLong(), RANGE_END.toLong())
             classifier == List::class -> {
                 val argumentType = type.arguments.first().type
@@ -81,6 +84,14 @@ object Fixture {
                 generateList(argumentType, Random.nextInt(RANGE_INT_INIT, RANGE_INIT_END))
             }
             else -> createInstance(classifier)
+        }
+    }
+
+    private fun createExceptionInstance(klass: KClass<out Throwable>): Throwable {
+        return try {
+            klass.primaryConstructor?.call("Generated Exception") ?: klass.createInstance()
+        } catch (e: Exception) {
+            RuntimeException("Fallback Exception for ${klass.simpleName}")
         }
     }
 
