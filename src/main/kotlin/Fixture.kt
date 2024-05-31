@@ -16,18 +16,41 @@ import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.createType
 import kotlin.reflect.full.primaryConstructor
 
+/**
+ * The Fixture object provides utilities for generating instances of classes with random data,
+ * making it easier to create test fixtures. It supports a variety of types, including strings,
+ * numbers, booleans, enums, sealed classes, and exceptions.
+ */
 object Fixture {
 
+    /**
+     * Creates an instance of the specified class [T] with random data.
+     *
+     * @return an instance of the specified class [T].
+     */
     inline fun <reified T : Any> fixtureOf(): T {
         return createInstance(T::class)
     }
 
+    /**
+     * Creates a list of instances of the specified class [T] with random data.
+     *
+     * @param size the number of instances to generate. Defaults to 3.
+     * @return a list of instances of the specified class [T].
+     */
     @Suppress("UNCHECKED_CAST")
     inline fun <reified T : Any> fixtureListOf(size: Int = 3): List<T> {
         val type = T::class.createType()
         return generateList(type, size) as List<T>
     }
 
+    /**
+     * Creates an instance of the specified class [klass] with random data.
+     *
+     * @param klass the KClass of the class to instantiate.
+     * @return an instance of the specified class [klass].
+     * @throws IllegalArgumentException if the class does not have a primary constructor or a no-arg constructor.
+     */
     fun <T : Any> createInstance(klass: KClass<T>): T {
         val constructor = klass.primaryConstructor
 
@@ -41,6 +64,14 @@ object Fixture {
         }
     }
 
+    /**
+     * Creates an instance of the specified class [klass] using a fallback method.
+     * This method attempts to create an instance using a no-arg constructor.
+     *
+     * @param klass the KClass of the class to instantiate.
+     * @return an instance of the specified class [klass].
+     * @throws IllegalArgumentException if the class does not have a no-arg constructor.
+     */
     private fun <T : Any> createInstanceFallback(klass: KClass<T>): T {
         return try {
             klass.createInstance()
@@ -51,6 +82,14 @@ object Fixture {
         }
     }
 
+    /**
+     * Generates a random value for the specified type [type] and property name [propertyName].
+     *
+     * @param type the KType of the property.
+     * @param propertyName the name of the property.
+     * @return a random value for the specified type.
+     * @throws IllegalArgumentException if the type is not supported.
+     */
     private fun generateValue(type: KType, propertyName: String): Any {
         val classifier = type.classifier as? KClass<*>
             ?: throw IllegalArgumentException("Unsupported type: $type")
@@ -89,6 +128,12 @@ object Fixture {
         }
     }
 
+    /**
+     * Creates an instance of an exception class with a default message.
+     *
+     * @param klass the KClass of the exception class to instantiate.
+     * @return an instance of the specified exception class.
+     */
     private fun createExceptionInstance(klass: KClass<out Throwable>): Throwable {
         return try {
             klass.primaryConstructor?.call("Generated Exception") ?: klass.createInstance()
@@ -97,6 +142,13 @@ object Fixture {
         }
     }
 
+    /**
+     * Generates a list of random values for the specified element type [elementType].
+     *
+     * @param elementType the KType of the list elements.
+     * @param size the number of elements to generate.
+     * @return a list of random values.
+     */
     fun generateList(elementType: KType, size: Int): List<Any> {
         return List(size) { generateValue(elementType, "") }
     }
