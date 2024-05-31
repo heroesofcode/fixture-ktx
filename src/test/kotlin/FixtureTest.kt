@@ -3,6 +3,7 @@ import com.heroesofcode.Fixture.fixtureOf
 import data.EnumDataTest
 import data.Group
 import data.Person
+import data.SealedData
 import data.User
 import kotlin.test.Test
 import kotlin.test.assertNotNull
@@ -48,5 +49,11 @@ class FixtureTest {
     fun `test fixtureOf with enum data on data class`() {
         val enumData = fixtureOf<EnumDataTest>()
         assertNotNull(enumData)
+    }
+
+    @Test
+    fun `test fixtureOf with sealed data on data class`() {
+        val sealedData = fixtureOf<SealedData>()
+        assertNotNull(sealedData)
     }
 }

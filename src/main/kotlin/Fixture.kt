@@ -10,6 +10,7 @@ import com.heroesofcode.faker.constants.RANGE_INT_INIT
 import kotlin.random.Random
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
+import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.createType
 import kotlin.reflect.full.primaryConstructor
 
@@ -27,13 +28,25 @@ object Fixture {
 
     fun <T : Any> createInstance(klass: KClass<T>): T {
         val constructor = klass.primaryConstructor
-            ?: throw IllegalArgumentException("Class must have a primary constructor")
 
-        val parameters = constructor.parameters.associateWith { parameter ->
-            generateValue(parameter.type, parameter.name ?: "")
+        if (constructor != null) {
+            val parameters = constructor.parameters.associateWith { parameter ->
+                generateValue(parameter.type, parameter.name ?: "")
+            }
+            return constructor.callBy(parameters)
+        } else {
+            return createInstanceFallback(klass)
         }
+    }
 
-        return constructor.callBy(parameters)
+    private fun <T : Any> createInstanceFallback(klass: KClass<T>): T {
+        return try {
+            klass.createInstance()
+        } catch (e: Exception) {
+            throw IllegalArgumentException(
+                "Class must have a primary constructor or a no-arg constructor: ${klass.simpleName}"
+            )
+        }
     }
 
     private fun generateValue(type: KType, propertyName: String): Any {
@@ -51,6 +64,15 @@ object Fixture {
                 val enumValues = enumClass.java.enumConstants
                     ?: throw IllegalArgumentException("Class is not an enum: $classifier")
                 enumValues.random()
+            }
+            classifier.isSealed -> {
+                val subclasses = classifier.sealedSubclasses
+                val subclass = subclasses.random()
+                if (subclass.objectInstance != null) {
+                    subclass.objectInstance!!
+                } else {
+                    createInstance(subclass)
+                }
             }
             classifier == Long::class -> Random.nextLong(RANGE_INIT.toLong(), RANGE_END.toLong())
             classifier == List::class -> {
