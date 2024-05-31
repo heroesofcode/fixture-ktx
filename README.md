@@ -64,14 +64,14 @@ fun main() {
 
 The fixture-ktx currently supports the following property types:
 
-* String: Generates a random string.
-* Int: Generates a random integer.
-* Boolean: Generates a random boolean value.
-* Double: Generates a random double value.
-* Float: Generates a random float value.
-* Enum: Randomly selects a value from an enumeration.
-* Sealed Classes: Randomly selects a subclass of a sealed class.
-* Exceptions: Generates instances of exceptions with a default message.
+* **String:** Generates a random string.
+* **Int:** Generates a random integer.
+* **Boolean:** Generates a random boolean value.
+* **Double:** Generates a random double value.
+* **Float:** Generates a random float value.
+* **Enum:** Randomly selects a value from an enumeration.
+* **Sealed Classes:** Randomly selects a subclass of a sealed class.
+* **Exceptions:** Generates instances of exceptions with a default message.
 
 ## Generate Data
 
