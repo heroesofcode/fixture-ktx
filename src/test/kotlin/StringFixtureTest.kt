@@ -1,5 +1,5 @@
-import io.heroesofcode.Fixture.fixtureOf
 import data.faker.StringFakerData
+import io.heroesofcode.Fixture.fixtureOf
 import org.junit.jupiter.api.Test
 import kotlin.test.assertNotNull
 

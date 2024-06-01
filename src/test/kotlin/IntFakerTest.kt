@@ -1,5 +1,5 @@
-import io.heroesofcode.Fixture.fixtureOf
 import data.faker.IntFakerData
+import io.heroesofcode.Fixture.fixtureOf
 import kotlin.test.Test
 import kotlin.test.assertTrue
 

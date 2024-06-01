@@ -1,3 +1,4 @@
+import data.faker.DoubleFakerData
 import io.heroesofcode.Fixture.fixtureOf
 import io.heroesofcode.faker.constants.ACCELERATION_END
 import io.heroesofcode.faker.constants.ACCELERATION_START
@@ -97,7 +98,6 @@ import io.heroesofcode.faker.constants.WIDTH_END
 import io.heroesofcode.faker.constants.WIDTH_START
 import io.heroesofcode.faker.constants.YIELD_END
 import io.heroesofcode.faker.constants.YIELD_START
-import data.faker.DoubleFakerData
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
