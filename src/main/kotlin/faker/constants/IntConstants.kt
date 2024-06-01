@@ -1,4 +1,4 @@
-package com.heroesofcode.faker.constants
+package io.heroesofcode.faker.constants
 
 internal const val RANGE_INIT = 0
 internal const val RANGE_END = 100

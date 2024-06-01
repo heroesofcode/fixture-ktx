@@ -1,10 +1,10 @@
-import com.heroesofcode.Fixture.fixtureListOf
-import com.heroesofcode.Fixture.fixtureOf
 import data.EnumDataTest
 import data.Group
 import data.Person
 import data.SealedData
 import data.User
+import io.heroesofcode.Fixture.fixtureListOf
+import io.heroesofcode.Fixture.fixtureOf
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue

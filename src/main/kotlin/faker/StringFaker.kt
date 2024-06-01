@@ -1,8 +1,8 @@
-package com.heroesofcode.faker
+package io.heroesofcode.faker
 
-import com.heroesofcode.faker.constants.RANGE_END
-import com.heroesofcode.faker.constants.RANGE_INIT
 import io.github.serpro69.kfaker.Faker
+import io.heroesofcode.faker.constants.RANGE_END
+import io.heroesofcode.faker.constants.RANGE_INIT
 import kotlin.random.Random
 
 /**

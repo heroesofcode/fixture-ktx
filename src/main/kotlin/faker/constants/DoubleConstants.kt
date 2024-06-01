@@ -1,4 +1,4 @@
-package com.heroesofcode.faker.constants
+package io.heroesofcode.faker.constants
 
 internal const val DEFAULT_START_DOUBLE = 0.0
 internal const val DEFAULT_END_DOUBLE = 100.0

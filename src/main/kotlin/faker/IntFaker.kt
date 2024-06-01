@@ -1,19 +1,19 @@
-package com.heroesofcode.faker
+package io.heroesofcode.faker
 
-import com.heroesofcode.faker.constants.CHAPTER_END
-import com.heroesofcode.faker.constants.CHAPTER_START
-import com.heroesofcode.faker.constants.DAY_END
-import com.heroesofcode.faker.constants.DAY_START
-import com.heroesofcode.faker.constants.EPISODE_END
-import com.heroesofcode.faker.constants.EPISODE_START
-import com.heroesofcode.faker.constants.MONTH_END
-import com.heroesofcode.faker.constants.MONTH_START
-import com.heroesofcode.faker.constants.RANGE_END
-import com.heroesofcode.faker.constants.RANGE_INIT
-import com.heroesofcode.faker.constants.ROUND_END
-import com.heroesofcode.faker.constants.ROUND_START
-import com.heroesofcode.faker.constants.YEAR_END
-import com.heroesofcode.faker.constants.YEAR_START
+import io.heroesofcode.faker.constants.CHAPTER_END
+import io.heroesofcode.faker.constants.CHAPTER_START
+import io.heroesofcode.faker.constants.DAY_END
+import io.heroesofcode.faker.constants.DAY_START
+import io.heroesofcode.faker.constants.EPISODE_END
+import io.heroesofcode.faker.constants.EPISODE_START
+import io.heroesofcode.faker.constants.MONTH_END
+import io.heroesofcode.faker.constants.MONTH_START
+import io.heroesofcode.faker.constants.RANGE_END
+import io.heroesofcode.faker.constants.RANGE_INIT
+import io.heroesofcode.faker.constants.ROUND_END
+import io.heroesofcode.faker.constants.ROUND_START
+import io.heroesofcode.faker.constants.YEAR_END
+import io.heroesofcode.faker.constants.YEAR_START
 import kotlin.random.Random
 
 /**

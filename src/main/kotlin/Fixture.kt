@@ -1,14 +1,14 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package com.heroesofcode
+package io.heroesofcode
 
-import com.heroesofcode.faker.DoubleFaker
-import com.heroesofcode.faker.IntFaker
-import com.heroesofcode.faker.StringFaker
-import com.heroesofcode.faker.constants.RANGE_END
-import com.heroesofcode.faker.constants.RANGE_INIT
-import com.heroesofcode.faker.constants.RANGE_INIT_END
-import com.heroesofcode.faker.constants.RANGE_INT_INIT
+import io.heroesofcode.faker.DoubleFaker
+import io.heroesofcode.faker.IntFaker
+import io.heroesofcode.faker.StringFaker
+import io.heroesofcode.faker.constants.RANGE_END
+import io.heroesofcode.faker.constants.RANGE_INIT
+import io.heroesofcode.faker.constants.RANGE_INIT_END
+import io.heroesofcode.faker.constants.RANGE_INT_INIT
 import kotlin.random.Random
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
