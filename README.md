@@ -4,11 +4,24 @@ The fixture-ktx is a tool that helps generate class instances with random data t
 
 ## Installation
 
+Add it in your root settings.gradle or build.gradle at the end of repositories:
+
+```groovy
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
+    }
+}
+```
+
 Add the Fixture Library dependency to your build configuration file. For example, if you're using Gradle, add the following to your `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation 'io.heroesofcode:fixture-ktx:$version'
+    implementation 'com.github.heroesofcode:fixture-ktx:$version'
 }
 ```
 
