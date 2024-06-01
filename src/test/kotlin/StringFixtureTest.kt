@@ -1,4 +1,4 @@
-import com.heroesofcode.Fixture.fixtureOf
+import io.heroesofcode.Fixture.fixtureOf
 import data.faker.StringFakerData
 import org.junit.jupiter.api.Test
 import kotlin.test.assertNotNull

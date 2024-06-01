@@ -19,7 +19,7 @@ dependencies {
 To generate an instance of a class with random data, use the <b>fixtureOf</b> method.
 
 ```kotlin
-import com.heroesofcode.Fixture.fixtureOf
+import io.heroesofcode.Fixture.fixtureOf
 
 val user = fixtureOf<User>()
 ```
@@ -29,7 +29,7 @@ val user = fixtureOf<User>()
 To generate a list of class instances with random data, use the <b>fixtureListOf</b> method.
 
 ```kotlin
-import com.heroesofcode.Fixture.fixtureListOf
+import io.heroesofcode.Fixture.fixtureListOf
 
 val users = fixtureListOf<User>()
 ```

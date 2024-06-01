@@ -1,5 +1,5 @@
-import com.heroesofcode.Fixture.fixtureListOf
-import com.heroesofcode.Fixture.fixtureOf
+import io.heroesofcode.Fixture.fixtureListOf
+import io.heroesofcode.Fixture.fixtureOf
 import data.EnumDataTest
 import data.Group
 import data.Person

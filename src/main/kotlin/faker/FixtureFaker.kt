@@ -1,4 +1,4 @@
-package com.heroesofcode.faker
+package io.heroesofcode.faker
 
 /**
  * FixtureFaker is an interface for classes that generate fake values of a specified type.

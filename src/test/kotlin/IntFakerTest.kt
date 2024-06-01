@@ -1,4 +1,4 @@
-import com.heroesofcode.Fixture.fixtureOf
+import io.heroesofcode.Fixture.fixtureOf
 import data.faker.IntFakerData
 import kotlin.test.Test
 import kotlin.test.assertTrue
