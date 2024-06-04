@@ -7,7 +7,7 @@
     <!-- Basic project information -->
     <groupId>io.heroesofcode</groupId>
     <artifactId>fixture-ktx</artifactId>
-    <version>0.1.0</version>
+    <version>0.7.0</version>
     <packaging>jar</packaging>
 
     <name>fixture-ktx</name>
