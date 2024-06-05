@@ -1,8 +1,8 @@
 plugins {
     kotlin("jvm") version "2.0.0"
 
-    id("io.gitlab.arturbosch.detekt") version "1.23.2"
-    id("org.jetbrains.kotlinx.kover") version "0.7.6"
+    id("io.gitlab.arturbosch.detekt") version "1.23.6"
+    id("org.jetbrains.kotlinx.kover") version "0.8.0"
 
     `maven-publish`
 }
@@ -16,10 +16,10 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.0.0")
-    implementation("io.github.serpro69:kotlin-faker:1.6.0")
+    implementation("io.github.serpro69:kotlin-faker:1.16.0")
     testImplementation(kotlin("test"))
 
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.2")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.6")
 }
 
 publishing {
