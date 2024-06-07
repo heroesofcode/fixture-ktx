@@ -85,6 +85,9 @@ The fixture-ktx currently supports the following property types:
 * **Enum:** Randomly selects a value from an enumeration.
 * **Sealed Classes:** Randomly selects a subclass of a sealed class.
 * **Exceptions:** Generates instances of exceptions with a default message.
+* **List:** Generates a list of random values of a specified type.
+* **Array:** Generates an array of random values of a specified type.
+* **Set:** Generates a set of random values of a specified type.
 
 ## Generate Data
 
