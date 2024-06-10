@@ -2,7 +2,7 @@ plugins {
     kotlin("jvm") version "2.0.0"
 
     id("io.gitlab.arturbosch.detekt") version "1.23.6"
-    id("org.jetbrains.kotlinx.kover") version "0.8.0"
+    id("org.jetbrains.kotlinx.kover") version "0.8.1"
 
     `maven-publish`
 }
