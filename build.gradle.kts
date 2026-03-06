@@ -16,7 +16,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.3.10")
-    implementation("io.github.serpro69:kotlin-faker:1.16.0")
+    implementation("io.github.serpro69:kotlin-faker:1.16.1")
     testImplementation(kotlin("test"))
 
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.8")
