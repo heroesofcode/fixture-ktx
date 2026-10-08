@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:2.4.20")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.4.21")
     implementation("io.github.serpro69:kotlin-faker:1.16.2")
     testImplementation(kotlin("test"))
 
